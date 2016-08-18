@@ -1,0 +1,36 @@
+﻿@model IEnumerable<FacturacionWEBII.Models.Factura>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>FACTURACION</h2>
+
+<p>
+    @Html.ActionLink("NUEVA FACTURA", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaFactura)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaFactura)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {id = item.IdFactura}) |
+                @Html.ActionLink("Details", "Details", new {id = item.IdFactura}) |
+                @Html.ActionLink("Delete", "Delete", new {id = item.IdFactura})
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.ActionLink("HOME", "Index", "Home")

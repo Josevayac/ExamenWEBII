@@ -1,0 +1,58 @@
+﻿@model IEnumerable<FacturacionWEBII.Models.Inventario>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Producto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cantidad_Mínima)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cantidad_Máxima)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gravado_Excepto)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Producto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cantidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cantidad_Mínima)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cantidad_Máxima)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gravado_Excepto)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdInvent }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdInvent }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdInvent })
+        </td>
+    </tr>
+}
+
+</table>
